@@ -1,0 +1,17 @@
+services:
+  cli:
+    build: .
+    stdin_open: true
+    tty: true
+    environment:
+      DB_PATH: /app/data/app.db
+      SESSION_TIMEOUT: 30m
+      MAX_FAILED_ATTEMPTS: 5
+      LOCKOUT_DURATION: 15m
+      PASSWORD_MIN_LENGTH: 8
+      SESSION_SECRET: ${SESSION_SECRET:-change-me-in-production}
+    volumes:
+      - app-data:/app/data
+
+volumes:
+  app-data:
