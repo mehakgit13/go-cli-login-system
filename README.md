@@ -4,8 +4,8 @@ A Go command-line authentication system implementing the assignment requirements
 
 ## Requirements
 
-- Go 1.22+ for local development
-- Docker + Docker Compose
+* Go 1.22+ for local development
+* Docker + Docker Compose
 
 ## Run with Docker
 
@@ -51,24 +51,24 @@ exit
 
 ## Security
 
-- Passwords are stored using bcrypt hashes, never plaintext.
-- Failed logins are counted.
-- After 5 failed attempts, the account is locked for 15 minutes by default.
-- Sessions use cryptographically random opaque IDs.
-- Sessions expire after 30 minutes by default.
-- TOTP uses the standard 30-second period and SHA-1 six-digit TOTP codes used by common authenticator applications; verification accepts the adjacent time windows to tolerate normal clock drift.
-- SQLite foreign keys are enabled.
+* Passwords are stored using bcrypt hashes, never plaintext.
+* Failed logins are counted.
+* After 5 failed attempts, the account is locked for 15 minutes by default.
+* Sessions use cryptographically random opaque IDs.
+* Sessions expire after 30 minutes by default.
+* TOTP uses the standard 30-second period and SHA-1 six-digit TOTP codes used by common authenticator applications; verification accepts the adjacent time windows to tolerate normal clock drift.
+* SQLite foreign keys are enabled.
 
 Configuration can be changed through environment variables:
 
-| Variable | Default |
-|---|---|
-| DB_PATH | data/app.db |
-| SESSION_TIMEOUT | 30m |
-| MAX_FAILED_ATTEMPTS | 5 |
-| LOCKOUT_DURATION | 15m |
-| PASSWORD_MIN_LENGTH | 8 |
-| SESSION_SECRET | change-me-in-production |
+|Variable|Default|
+|-|-|
+|DB\_PATH|data/app.db|
+|SESSION\_TIMEOUT|30m|
+|MAX\_FAILED\_ATTEMPTS|5|
+|LOCKOUT\_DURATION|15m|
+|PASSWORD\_MIN\_LENGTH|8|
+|||
 
 ## Local development
 
@@ -99,7 +99,7 @@ go test ./...
 │   ├── db/
 │   ├── models/
 │   └── session/
-├── migrations/001_init.sql
+├── migrations/001\_init.sql
 ├── Dockerfile
 ├── docker-compose.yml
 ├── go.mod
@@ -112,16 +112,17 @@ The CLI stores readline history in `data/.history`. The application is intention
 
 ## Submission checklist
 
-- [x] Go source code
-- [x] Registration and login
-- [x] bcrypt password hashing
-- [x] Optional TOTP 2FA
-- [x] Failed-attempt lockout
-- [x] Configurable session timeout
-- [x] SQLite persistence
-- [x] Dockerfile and Docker Compose
-- [x] Interactive CLI with history and tab completion
-- [x] Help/error/success feedback
-- [x] Schema/migration
-- [x] Unit tests
-- [x] README
+* \[x] Go source code
+* \[x] Registration and login
+* \[x] bcrypt password hashing
+* \[x] Optional TOTP 2FA
+* \[x] Failed-attempt lockout
+* \[x] Configurable session timeout
+* \[x] SQLite persistence
+* \[x] Dockerfile and Docker Compose
+* \[x] Interactive CLI with history and tab completion
+* \[x] Help/error/success feedback
+* \[x] Schema/migration
+* \[x] Unit tests
+* \[x] README
+
